@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "csv-parse": "^4.8.5",
+    "seedrandom": "^3.0.5"
+  }
+}
