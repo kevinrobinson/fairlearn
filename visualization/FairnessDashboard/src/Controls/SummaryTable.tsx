@@ -132,6 +132,7 @@ export class SummaryTable extends React.PureComponent<ISummaryTableProps> {
                     <div className={SummaryTable.classNames.groupLabel}>{this.props.binGroup}</div>
                     <div className={SummaryTable.classNames.flexCol}>
                         {this.props.binLabels.map((label, index) => {
+                            console.log('label, index', label, index);
                             return (<div className={SummaryTable.classNames.binBox} key={index}>
                                 <div className={SummaryTable.classNames.binTitle}>{label}</div>
                                 <Stack horizontal>

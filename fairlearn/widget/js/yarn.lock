@@ -1292,20 +1292,6 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-fairlearn-dashboard@0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/fairlearn-dashboard/-/fairlearn-dashboard-0.0.16.tgz#942a71e5898b9935fbeb54207127da20594fd265"
-  integrity sha512-1Mgz82iisz8maEdkFV/MCAUSAoya6cWi0enAruI4CGupu/D8d/HHlAXpt703qkwcPrlePC5wvHIKqb4nncUEJQ==
-  dependencies:
-    jmespath "^0.15.0"
-    localized-strings "^0.2.2"
-    lodash "^4.17.11"
-    memoize-one "^5.0.2"
-    mlchartlib "0.1.30"
-    moment "^2.24.0"
-    office-ui-fabric-react "7.21.0"
-    uuid "^3.3.2"
-
 fast-deep-equal@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"

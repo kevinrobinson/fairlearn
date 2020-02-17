@@ -178,7 +178,9 @@ export class FairnessWizard extends React.PureComponent<IFairnessProps, IWizardS
             this.setSelectedModel(numbers[0]);
         }});
 
+        console.log('fairnessContext', fairnessContext);
         const featureBins = this.buildFeatureBins(fairnessContext);
+        console.log('featureBins', featureBins);
         if (featureBins.length > 0) {
             fairnessContext.binVector = this.generateBinVectorForBin(featureBins[0], fairnessContext.dataset);
             fairnessContext.groupNames = featureBins[0].labelArray;

@@ -77,7 +77,7 @@
         "maxTag": "Max",
         "groupLabel": "Subgroup",
         "underestimationError": "Underprediction",
-        "underpredictionExplanation": "(predicted = 0, true = 1)",
+        "underpredictionExplanation": "(predicted = xxx, true = 1)",
         "overpredictionExplanation": "(predicted = 1, true = 0)",
         "overestimationError": "Overprediction",
         "classificationOutcomesHowToRead": "The bar chart shows the selection rate in each group, meaning the fraction of points classified as 1.",

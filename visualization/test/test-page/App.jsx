@@ -33,23 +33,24 @@ import { probit } from "../__mock-data/probit";
         return Promise.resolve(data.map(x => Math.random()));
       }
 
+      readMetrics(data, signal) {
+        const binSize = Math.max(...data.binVector);
+        const bins = new Array(binSize + 1).fill(0).map(x => Math.random())
+        return simulatedRequest(data, signal, {
+          global: Math.random(),
+          bins
+        });
+        
+      }
+
       generateRandomMetrics(data, signal) {
         const binSize = Math.max(...data.binVector);
         const bins = new Array(binSize + 1).fill(0).map(x => Math.random())
         bins[2] = undefined
-        let promise = new Promise((resolve, reject) => {
-          let timeout = setTimeout(() => {resolve({
-            global: Math.random(),
-            bins
-          })}, 300);
-          if (signal) {
-            signal.addEventListener('abort', () => {
-              clearTimeout(timeout);
-              reject(new DOMException('Aborted', 'AbortError'));
-            });
-          }
+        return simulatedRequest(data, signal, {
+          global: Math.random(),
+          bins
         });
-        return promise;
       }
 
       generateExplanatins(explanations, data, signal) {
@@ -67,6 +68,8 @@ import { probit } from "../__mock-data/probit";
 
       render() {
         const data = _.cloneDeep(App.choices[this.state.value].data);
+        console.log('data.featureNames', data.featureNames);
+        console.log('data.classNames', data.classNames);
         return (
           <div style={{backgroundColor: 'grey', height:'100%'}}>
             <label>
@@ -87,7 +90,7 @@ import { probit } from "../__mock-data/probit";
                         supportedRegressionAccuracyKeys={["mean_absolute_error", "r2_score", "mean_squared_error", "root_mean_squared_error"]}
                         supportedProbabilityAccuracyKeys={["auc", "root_mean_squared_error", "balanced_root_mean_squared_error", "r2_score", "mean_squared_error", "mean_absolute_error"]}
                         stringParams={{contextualHelp: this.messages}}
-                        requestMetrics={this.generateRandomMetrics.bind(this)}
+                        requestMetrics={this.readMetrics.bind(this)}
                         key={new Date()}
                       />
                   </div>
@@ -98,3 +101,17 @@ import { probit } from "../__mock-data/probit";
     }
 
     export default App;
+
+
+function simulatedRequest(data, signal, resolved) {
+  let promise = new Promise((resolve, reject) => {
+    let timeout = setTimeout(() => resolve(resolved), 300);
+    if (signal) {
+      signal.addEventListener('abort', () => {
+        clearTimeout(timeout);
+        reject(new DOMException('Aborted', 'AbortError'));
+      });
+    }
+  });
+  return promise;
+}

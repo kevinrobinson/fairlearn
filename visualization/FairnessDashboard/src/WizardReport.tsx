@@ -625,6 +625,7 @@ export class WizardReport extends React.PureComponent<IReportProps, IState> {
                 this.props.featureBinPickerProps.selectedBinIndex, 
                 this.props.selectedModelIndex,
                 this.props.accuracyPickerProps.selectedAccuracyKey));
+            console.log('accuracy', accuracy);
             const accuracyDisparity = await this.props.metricsCache.getDisparityMetric(
                 this.props.dashboardContext.binVector,
                 this.props.featureBinPickerProps.selectedBinIndex, 

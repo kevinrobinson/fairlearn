@@ -2596,7 +2596,7 @@ extglob@^2.0.4:
     to-regex "^3.0.1"
 
 fairlearn-dashboard@../../FairnessDashboard:
-  version "0.0.14"
+  version "0.0.16"
   dependencies:
     jmespath "^0.15.0"
     localized-strings "^0.2.2"

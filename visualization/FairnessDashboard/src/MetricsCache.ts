@@ -13,6 +13,7 @@ export class MetricsCache {
     }
 
     public async getMetric(binIndexVector: number[], featureIndex: number, modelIndex: number, key: string): Promise<IMetricResponse> {
+        console.log('getMetric', binIndexVector, featureIndex, modelIndex, key);
         let value = this.cache[featureIndex][modelIndex][key];
         if (value === undefined) {
             value = await this.fetchMethod({
